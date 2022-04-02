@@ -4,8 +4,8 @@ import { Container, Row, Col, Card, Table, Button } from 'react-bootstrap'
 const CasesNotFiled = () => {
   return (
     <>
-                        <Card style={{ height: '32rem', boxShadow: '5px 5px 20px' }}>
-                            <Card.Header className='fs-3 bg-primary text-dark'>Cases not filed</Card.Header>
+                        <Card style={{ height: '32rem', boxShadow: '2px 2px 15px' }}>
+                            <Card.Header className='fs-3 bg-primary text-dark'>Cases that need to be filed</Card.Header>
                             <Card.Body>
                                 <Card.Text>
                                     <Table hover>

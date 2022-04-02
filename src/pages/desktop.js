@@ -6,6 +6,7 @@ import CasesNotAccepted from './dashboardComponents/CasesNotAccepted'
 import CasesNotFiled from './dashboardComponents/CasesNotFiled'
 import WeeksDockets from './dashboardComponents/WeeksDockets'
 import ThisYearLastYearChart from './dashboardComponents/ThisYearLastYearChart'
+import PendingRequests from './dashboardComponents/PendingRequests'
 
 const Desktop = () => {
     return (
@@ -20,6 +21,11 @@ const Desktop = () => {
                     </Col>
                     <Col>
                         <CasesNotFiled />
+                    </Col>
+                </Row>
+                <Row className='my-4'>
+                    <Col>
+                        <PendingRequests />
                     </Col>
                 </Row>
                 <Row className='my-4'>

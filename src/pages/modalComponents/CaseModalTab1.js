@@ -1,0 +1,165 @@
+import React, { useState } from 'react'
+import { Container, Row, Col, Form, InputGroup } from 'react-bootstrap'
+
+const CaseModalTab1 = () => {
+
+    const [showRentArea, setShowRentArea] = useState(false)
+
+    const [showUDArea, setShowUDArea] = useState(true)
+
+    const [showEVArea, setShowEVArea] = useState(false)
+
+    const [showSQArea, setShowSQArea] = useState(false)
+
+    const [showHTArea, setShowHTArea] = useState(false)
+
+
+
+    return (
+        <div className='mt-3'>
+            <Container>
+                <Row className='ms-2 bg-primary text-light'>
+                    <Col xs={3}>Is rent delinquent?</Col>
+                    <Col className='bg-light text-dark'><Form.Check className='ms-3' inline type='radio' name='isRentDelinquent' onChange={e => setShowRentArea(true)} label='Yes' />
+                        <Form.Check inline type='radio' name='isRentDelinquent' checked onChange={e => setShowRentArea(false)} label='No' /></Col></Row>
+
+                <Row className='pt-3'>{showRentArea ? <RentArea /> : null}</Row>
+                <Row className='ms-2 bg-primary text-light'>
+                    <Col xs={3}>Is there a lease violation?</Col>
+                    <Col className='bg-light text-dark'><Form.Check className='ms-3' inline type='radio' name='isLeaseViolation' checked onChange={e => setShowUDArea(true)} label='Yes' />
+                        <Form.Check inline type='radio' name='isLeaseViolation' onChange={e => setShowUDArea(false)} label='No' /></Col></Row>
+
+                <Row className='pt-3'>{showUDArea ? <UDArea /> : null}</Row>
+                <Row className='ms-2 bg-primary text-light'>
+                    <Col xs={3}>Is this an emergency eviction?</Col>
+                    <Col className='bg-light text-dark'><Form.Check className='ms-3' inline type='radio' name='isEmergencyEviction' onChange={e => setShowEVArea(true)} label='Yes' />
+                        <Form.Check inline type='radio' name='isEmergencyEviction' checked='true' onChange={e => setShowEVArea(false)} label='No' /></Col></Row>
+
+                <Row className='pt-3'>{showEVArea ? <EVArea /> : null}</Row>
+                <Row className='ms-2 bg-primary text-light'>
+                    <Col xs={3}>Is this an squatter case?</Col>
+                    <Col className='bg-light text-dark'><Form.Check className='ms-3' inline type='radio' name='isSquatter' onChange={e => setShowSQArea(true)} label='Yes' />
+                        <Form.Check inline type='radio' name='isSquatter' checked='true' onChange={e => setShowSQArea(false)} label='No' /></Col></Row>
+                <Row className='pt-3'>{showSQArea ? <SQArea /> : null}</Row>
+                <Row className='ms-2 bg-primary text-light'>
+                    <Col xs={3}>Is this an holdover tenant?</Col>
+                    <Col className='bg-light text-dark'><Form.Check className='ms-3' inline type='radio' name='isHoldover' onChange={e => setShowHTArea(true)} label='Yes' />
+                        <Form.Check inline type='radio' name='isHoldover' checked='true' onChange={e => setShowHTArea(false)} label='No' /></Col></Row>
+
+                <Row className='pt-3'>{showHTArea ? <HTArea /> : null}</Row>
+            </Container>
+        </div>
+
+    )
+}
+
+const RentArea = () => {
+    return (
+        <>
+            <Container>
+                <Form className='mb-3' controlId='inputRentOwed'>
+
+                    <Row className='p-2'>
+                        <Col xs={1} />
+                        <Col xs={3}><Form.Label>Monthly Rent Amount</Form.Label><InputGroup><InputGroup.Text>$</InputGroup.Text><Form.Control type='currency' value='1,000.00' className='text-end' /></InputGroup></Col>
+                        <Col xs={3}><Form.Label>Date Rent is Due</Form.Label><Form.Control value='3/1/2022' /></Col>
+                        <Col xs={1} />
+                    </Row>
+
+                    <Row className='p-2'>
+                        <Col xs={1} />
+                        <Col xs={3}><Form.Label>Rent Balance</Form.Label><InputGroup><InputGroup.Text>$</InputGroup.Text><Form.Control type='currency' value='3,000.00' className='text-end' /></InputGroup></Col>
+                        <Col xs={3}><Form.Label>Date of Balance</Form.Label><Form.Control value='3/15/2022' /></Col>
+                        <Col xs={1} />
+                    </Row>
+
+                    <Row className='p-2'>
+                        <Col xs={1} />
+                        <Col xs={3}><Form.Label>Late Fee Balance</Form.Label><InputGroup><InputGroup.Text>$</InputGroup.Text><Form.Control type='currency' value='300.00' className='text-end' /></InputGroup></Col>
+                        <Col xs={3}><Form.Label>Utility Balance</Form.Label><InputGroup><InputGroup.Text>$</InputGroup.Text><Form.Control type='currency' value='225.25' className='text-end' /></InputGroup></Col>
+                        <Col xs={1} />
+                    </Row>
+
+                    <Row className='p-2'>
+                        <Col xs={1} />
+                        <Col xs={3}><Form.Label>Additional Fee Balance</Form.Label><InputGroup><InputGroup.Text>$</InputGroup.Text><Form.Control type='currency' className='text-end' placeholder='0.00' /></InputGroup></Col>
+                        <Col xs={3}><Form.Label>Reason for additional fee(s)</Form.Label><Form.Control /></Col>
+                        <Col xs={4}><Form.Label className='fw-bold'>Total Amount Owed</Form.Label><InputGroup><InputGroup.Text className='fw-bold'>$</InputGroup.Text><Form.Control type='currency' className='fw-bold text-end' value='4,525.25' /></InputGroup></Col>
+                        <Col xs={1} />
+                    </Row>
+
+                </Form>
+            </Container>
+
+        </>
+    )
+}
+
+const UDArea = () => {
+    return (
+        <>
+            <Container>
+
+                <Form.Group className='mb-3' controlId='inputIncident information'>
+
+                    <Row className='p-2'><Col xs={1} /><Col xs={5}><Form.Label>Date of violation or discovery of violation</Form.Label>
+                        <Form.Control value='2/10/2022' /></Col>
+                        <Col xs={5}><Form.Label>Paragraph or section of lease violated</Form.Label>
+                            <Form.Control value='section 13' /></Col><Col xs={1} />
+                    </Row>
+
+                    <Row className='p-2'><Col xs={1} /><Col xs={10}><Form.Label>Describe the lease violation below</Form.Label>
+                        <Form.Control as='textarea' rows={3} value='On 3/10/2022, maintenance worker found a Saint Bernard.  Resident did not register any pets on the lease application, and the dog is over the size limit in the lease.' /></Col></Row>
+                    <Row><Col xs={1} /><Col className='ms-2' xs={4}><Form.Label>Date of notice:</Form.Label><Form.Control value='2/24/2022' /></Col><Col xs={1} /></Row>
+
+                </Form.Group>
+
+            </Container>
+        </>
+    )
+}
+
+const EVArea = () => {
+    return (
+        <>
+            <Form.Group className='mb-3' controlId='inputIncident information'>
+
+                <Row className='p-2'><Col xs={1} /><Col xs={5}><Form.Label>Date of incident</Form.Label>
+                    <Form.Control type='date' /></Col>
+                    <Col xs={5}><Form.Label>Time of incident</Form.Label>
+                        <Form.Control type='time' /></Col><Col xs={1} />
+                </Row>
+
+                <Row className='p-2'><Col xs={1} /><Col><Form.Label>Describe the incident below</Form.Label>
+                    <Form.Control as='textarea' rows={6} /></Col><Col xs={1} /></Row>
+                <Row><Col xs={1} /><Col className='ms-2' xs={4}><Form.Label>Date of notice (if any):</Form.Label><Form.Control type='date' /></Col></Row>
+
+            </Form.Group>
+        </>
+    )
+}
+
+const SQArea = () => {
+    return (
+        <>
+            <Form.Group className='mb-3' controlId='input Squatter Information'>
+                <Row><Col xs={1} /><Col className='ms-2' xs={4}><Form.Label>Date of notice:</Form.Label><Form.Control type='date' /></Col></Row>
+            </Form.Group>
+        </>
+    )
+}
+
+const HTArea = () => {
+    return (
+        <>
+            <Container>
+                <Form className='pb-3 ms-2'>
+                    <Row><Col xs={1} /><Col xs={5}><Form.Label>Monthly Rent Amount</Form.Label>
+                        <InputGroup><InputGroup.Text>$</InputGroup.Text><Form.Control type='currency' placeholder='0.00' className='text-end' /></InputGroup></Col>
+                        <Col xs={5}><Form.Label>Date of notice:</Form.Label><Form.Control type='date' /></Col><Col xs={1} /></Row>
+                </Form>
+            </Container>
+        </>
+    )
+}
+export default CaseModalTab1
