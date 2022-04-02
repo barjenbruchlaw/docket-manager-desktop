@@ -61,22 +61,22 @@ const RentArea = () => {
 
                     <Row className='p-2'>
                         <Col xs={1} />
-                        <Col xs={3}><Form.Label>Monthly Rent Amount</Form.Label><InputGroup><InputGroup.Text>$</InputGroup.Text><Form.Control type='currency' value='1,000.00' className='text-end' /></InputGroup></Col>
-                        <Col xs={3}><Form.Label>Date Rent is Due</Form.Label><Form.Control value='3/1/2022' /></Col>
+                        <Col xs={3}><Form.Label>Monthly Rent Amount</Form.Label><InputGroup><InputGroup.Text>$</InputGroup.Text><Form.Control type='currency' placeholder='0.00' className='text-end' /></InputGroup></Col>
+                        <Col xs={3}><Form.Label>Date Rent is Due</Form.Label><Form.Control type='date' /></Col>
                         <Col xs={1} />
                     </Row>
 
                     <Row className='p-2'>
                         <Col xs={1} />
-                        <Col xs={3}><Form.Label>Rent Balance</Form.Label><InputGroup><InputGroup.Text>$</InputGroup.Text><Form.Control type='currency' value='3,000.00' className='text-end' /></InputGroup></Col>
-                        <Col xs={3}><Form.Label>Date of Balance</Form.Label><Form.Control value='3/15/2022' /></Col>
+                        <Col xs={3}><Form.Label>Rent Balance</Form.Label><InputGroup><InputGroup.Text>$</InputGroup.Text><Form.Control type='currency' placeholder='0.00' className='text-end' /></InputGroup></Col>
+                        <Col xs={3}><Form.Label>Date of Balance</Form.Label><Form.Control type='date' /></Col>
                         <Col xs={1} />
                     </Row>
 
                     <Row className='p-2'>
                         <Col xs={1} />
-                        <Col xs={3}><Form.Label>Late Fee Balance</Form.Label><InputGroup><InputGroup.Text>$</InputGroup.Text><Form.Control type='currency' value='300.00' className='text-end' /></InputGroup></Col>
-                        <Col xs={3}><Form.Label>Utility Balance</Form.Label><InputGroup><InputGroup.Text>$</InputGroup.Text><Form.Control type='currency' value='225.25' className='text-end' /></InputGroup></Col>
+                        <Col xs={3}><Form.Label>Late Fee Balance</Form.Label><InputGroup><InputGroup.Text>$</InputGroup.Text><Form.Control type='currency' placeholder='0.00' className='text-end' /></InputGroup></Col>
+                        <Col xs={3}><Form.Label>Utility Balance</Form.Label><InputGroup><InputGroup.Text>$</InputGroup.Text><Form.Control type='currency' placeholder='0.00' className='text-end' /></InputGroup></Col>
                         <Col xs={1} />
                     </Row>
 
@@ -84,7 +84,7 @@ const RentArea = () => {
                         <Col xs={1} />
                         <Col xs={3}><Form.Label>Additional Fee Balance</Form.Label><InputGroup><InputGroup.Text>$</InputGroup.Text><Form.Control type='currency' className='text-end' placeholder='0.00' /></InputGroup></Col>
                         <Col xs={3}><Form.Label>Reason for additional fee(s)</Form.Label><Form.Control /></Col>
-                        <Col xs={4}><Form.Label className='fw-bold'>Total Amount Owed</Form.Label><InputGroup><InputGroup.Text className='fw-bold'>$</InputGroup.Text><Form.Control type='currency' className='fw-bold text-end' value='4,525.25' /></InputGroup></Col>
+                        <Col xs={4}><Form.Label className='fw-bold'>Total Amount Owed</Form.Label><InputGroup><InputGroup.Text className='fw-bold'>$</InputGroup.Text><Form.Control type='currency' placeholder='0.00' className='fw-bold text-end' /></InputGroup></Col>
                         <Col xs={1} />
                     </Row>
 
